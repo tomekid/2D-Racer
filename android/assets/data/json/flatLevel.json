@@ -1,0 +1,237 @@
+{
+  "allowSleep": true,
+  "autoClearForces": true,
+  "body": [
+    {
+      "angle": 0,
+      "angularVelocity": 0,
+      "awake": true,
+      "fixture": [
+        {
+          "chain": {
+            "vertices": {
+              "x": [
+                -75.13169097900391,
+                1261.552124023438
+              ],
+              "y": [
+                -0.8299999833106995,
+                -0.8299999833106995
+              ]
+            }
+          },
+          "density": 1,
+          "friction": 0.2000000029802322,
+          "name": "fixture0"
+        }
+      ],
+      "linearVelocity": {
+        "x": 0,
+        "y": 0
+      },
+      "name": "ground",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "type": 0
+    },
+    {
+      "angle": 0,
+      "angularVelocity": 0,
+      "awake": true,
+      "fixture": [
+        {
+          "density": 1,
+          "friction": 0.2000000029802322,
+          "name": "finishSensorFixture",
+          "polygon": {
+            "vertices": {
+              "x": [
+                0.50,
+                0.50,
+                -0.50,
+                -0.50
+              ],
+              "y": [
+                -0.50,
+                0.50,
+                0.50,
+                -0.50
+              ]
+            }
+          },
+          "sensor": true
+        }
+      ],
+      "linearVelocity": {
+        "x": 0,
+        "y": 0
+      },
+      "name": "finishSensor",
+      "position": {
+        "x": 57.75974273681641,
+        "y": -0.3589878082275391
+      },
+      "type": 0
+    }
+  ],
+  "collisionbitplanes": {
+    "names": [
+      "bitplane1",
+      "bitplane2",
+      "bitplane3",
+      "bitplane4",
+      "bitplane5",
+      "bitplane6",
+      "bitplane7",
+      "bitplane8",
+      "bitplane9",
+      "bitplane10",
+      "bitplane11",
+      "bitplane12",
+      "bitplane13",
+      "bitplane14",
+      "bitplane15",
+      "bitplane16",
+      "bitplane17",
+      "bitplane18",
+      "bitplane19",
+      "bitplane20",
+      "bitplane21",
+      "bitplane22",
+      "bitplane23",
+      "bitplane24",
+      "bitplane25",
+      "bitplane26",
+      "bitplane27",
+      "bitplane28",
+      "bitplane29",
+      "bitplane30",
+      "bitplane31",
+      "bitplane32"
+    ]
+  },
+  "continuousPhysics": true,
+  "gravity": {
+    "x": 0,
+    "y": -10.0
+  },
+  "image": [
+    {
+      "aspectScale": 1,
+      "body": -1,
+      "center": {
+        "x": -5.967160224914551,
+        "y": -0.3783699870109558
+      },
+      "corners": {
+        "x": [
+          -6.467160224914551,
+          -5.467160224914551,
+          -5.467160224914551,
+          -6.467160224914551
+        ],
+        "y": [
+          -0.8783699870109558,
+          -0.8783699870109558,
+          0.1216300129890442,
+          0.1216300129890442
+        ]
+      },
+      "file": "data/img/level1/startflag.png",
+      "filter": 1,
+      "glDrawElements": [
+        0,
+        1,
+        2,
+        2,
+        3,
+        0
+      ],
+      "glTexCoordPointer": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "glVertexPointer": [
+        -6.467160224914551,
+        -0.8783699870109558,
+        -5.467160224914551,
+        -0.8783699870109558,
+        -5.467160224914551,
+        0.1216300129890442,
+        -6.467160224914551,
+        0.1216300129890442
+      ],
+      "name": "image0",
+      "opacity": 1,
+      "scale": 1
+    },
+    {
+      "aspectScale": 1,
+      "body": -1,
+      "center": {
+        "x": 57.19241333007813,
+        "y": -0.4032828807830811
+      },
+      "corners": {
+        "x": [
+          56.69241333007813,
+          57.69241333007813,
+          57.69241333007813,
+          56.69241333007813
+        ],
+        "y": [
+          -0.9032828807830811,
+          -0.9032828807830811,
+          0.09671711921691895,
+          0.09671711921691895
+        ]
+      },
+      "file": "data/img/level1/endflag.png",
+      "filter": 1,
+      "glDrawElements": [
+        0,
+        1,
+        2,
+        2,
+        3,
+        0
+      ],
+      "glTexCoordPointer": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "glVertexPointer": [
+        56.69241333007813,
+        -0.9032828807830811,
+        57.69241333007813,
+        -0.9032828807830811,
+        57.69241333007813,
+        0.09671711921691895,
+        56.69241333007813,
+        0.09671711921691895
+      ],
+      "name": "image1",
+      "opacity": 1,
+      "scale": 1
+    }
+  ],
+  "positionIterations": 3,
+  "stepsPerSecond": 60.0,
+  "subStepping": false,
+  "velocityIterations": 8,
+  "warmStarting": true
+}
