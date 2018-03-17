@@ -46,6 +46,8 @@ public class TuneMenuScreen implements Screen {
     private Stage stage;
     private int FINALWIDTH = 10;
 
+    private Car car;
+
 
     public TuneMenuScreen(final RealRacer game) {
 
@@ -69,7 +71,7 @@ public class TuneMenuScreen implements Screen {
         carCamera.setToOrtho(false, game.getScreenWidth(FINALWIDTH), game.getScreenHeight(FINALWIDTH));
 
         //	carCamera.position.set(-10,-10,0);
-        carCamera.zoom = 0.5f;
+        carCamera.zoom = 0.6f;
 
 
 		/* how to do labels
@@ -88,7 +90,7 @@ public class TuneMenuScreen implements Screen {
 
         //load up car to tune
         //clear box2d stuff and add new car
-        Car car = game.selectedCar;
+        car = game.selectedCar;
         System.out.println(car);
 
         mSpatials = new Array<SimpleSpatial>();
@@ -217,6 +219,8 @@ public class TuneMenuScreen implements Screen {
 
         carCamera.update();
         menuCamera.update();
+
+        carCamera.position.set(car.body.getWorldCenter().x, car.body.getWorldCenter().y, 0);
 
 
         world.step(game.BOX_STEP, game.BOX_VELOCITY_ITERATIONS, game.BOX_POSITION_ITERATIONS);

@@ -65,8 +65,8 @@ public class GarageMenuScreen implements Screen {
 
         carCamera = new OrthographicCamera(1, screenHeight / screenWidth);
         carCamera.setToOrtho(false, game.getScreenWidth(FINALWIDTH), game.getScreenHeight(FINALWIDTH));
-        //	carCamera.position.set(-10,-10,0);
-        carCamera.zoom = 0.5f;
+        //
+        carCamera.zoom = 0.6f;
 
 
         //load a new world with clears spatials and texturemap
@@ -129,7 +129,7 @@ public class GarageMenuScreen implements Screen {
                     mTextureMap.clear();
                     mSpatials.clear();
                     RealRacer.loadCarAndLevelFromJson(world, mSpatials, mTextureMap, car, game.showRoomTrack);
-                    carCamera.position.set(car.body.getWorldCenter().x, car.body.getWorldCenter().y, 0);
+                    carCamera.position.set(car.body.getWorldCenter().x, car.body.getWorldCenter().y - 0.7f, 0);
 
                     LabelStyle infoText = new LabelStyle(game.font, Color.WHITE);
 

@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.Texture.TextureWrap;
 import com.badlogic.gdx.graphics.VertexAttribute;
 import com.badlogic.gdx.graphics.VertexAttributes.Usage;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.math.MathUtils;
@@ -37,6 +38,8 @@ public class Box2DRenderer {
     Mesh groundMesh, surfaceMesh;
     Texture grdTexture, surTexture;
     Layers layers;
+    Texture backgroundTexture;
+    Sprite backgroundSprite;
     private ShaderProgram shader;
 
     /**
@@ -54,6 +57,9 @@ public class Box2DRenderer {
         shader = new ShaderProgram(Gdx.files.internal("shader/vertex.glsl").readString(),
                 Gdx.files.internal("shader/fragment.glsl").readString());
 
+
+        backgroundTexture = new Texture("data/img/leveltest/sky.png");
+        backgroundSprite = new Sprite(backgroundTexture);
 
         this.world = world;
         this.spatials = new Array<SimpleSpatial>();
@@ -254,7 +260,7 @@ public class Box2DRenderer {
 
             grdTexture.setWrap(TextureWrap.Repeat, TextureWrap.Repeat);
             grdTexture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
-            shader.setUniformi("u_texture", 0);
+            shader.setUniformi("u_texture", 10);
 
             surTexture = new Texture(Gdx.files.internal("data/img/leveltest/surface.png"));
 
@@ -281,16 +287,20 @@ public class Box2DRenderer {
 
         batch.begin();
 
+        backgroundSprite.draw(batch);
         batch.setProjectionMatrix(camera.combined);
+
 
         layers.drawLayers(batch);
 
 
         if ((spatials != null) && (spatials.size > 0)) {
             for (int i = 0; i < spatials.size; i++) {
+
                 spatials.get(i).render(batch);
             }
         }
+
 
         batch.end();
         drawGround(camera);

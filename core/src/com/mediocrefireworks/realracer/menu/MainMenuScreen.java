@@ -57,7 +57,7 @@ public class MainMenuScreen implements Screen {
         carCamera = new OrthographicCamera(1, screenHeight / screenWidth);
         carCamera.setToOrtho(false, game.getScreenWidth(FINALWIDTH), game.getScreenHeight(FINALWIDTH));
         carCamera.position.set(-10, -10, 0);
-        carCamera.zoom = 0.5f;
+        carCamera.zoom = 0.6f;
 
 
         //loading all rube box2d stuff
@@ -77,7 +77,7 @@ public class MainMenuScreen implements Screen {
             mTextureMap.clear();
             mSpatials.clear();
             RealRacer.loadCarAndLevelFromJson(world, mSpatials, mTextureMap, car, game.showRoomTrack);
-            carCamera.position.set(car.body.getWorldCenter().x, car.body.getWorldCenter().y, 0);
+            carCamera.position.set(car.body.getWorldCenter().x, car.body.getWorldCenter().y - 0.75f, 0);
 
 
         }

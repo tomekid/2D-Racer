@@ -90,7 +90,7 @@ public class GameScreen implements InputProcessor, Screen {
         Gdx.graphics.setVSync(false);
 
         //changed to GL20 on update
-        //GLTexture.setEnforcePotImages(false);
+        //  GLTexture.setEnforcePotImages(false);
 
 
 /*
@@ -114,7 +114,7 @@ public class GameScreen implements InputProcessor, Screen {
         camera = new OrthographicCamera(1, screenHeight / screenWidth);
         camera.setToOrtho(false, game.getScreenWidth(FINALWIDTH), game.getScreenHeight(FINALWIDTH));
         camera.position.set(0, 0, 0);
-        camera.zoom = 0.4f;
+        camera.zoom = 0.6f;
 
         game.batch = new SpriteBatch();
 
@@ -145,7 +145,7 @@ public class GameScreen implements InputProcessor, Screen {
         texPath[1] = new String("leveltest/background.png");
         texPath[2] = new String("leveltest/background.png");
 
-        worldRenderer.addLayer(camera, texPath, 1000);
+        worldRenderer.addLayer(camera, texPath, 900);
 
         // i kept all the three textures same for testing  should be changed to three different tilable textures
 
@@ -204,10 +204,8 @@ public class GameScreen implements InputProcessor, Screen {
         hudTable.add().expandY();
         stage.addActor(hudTable);
 
+        startCountDown();
 
-		/*turn off count down for degbuging
-         *startCountDown();
-		 */
 
         state = State.RUNNING;
 
@@ -361,9 +359,9 @@ public class GameScreen implements InputProcessor, Screen {
         //camera zoom
         camera.position.set(car.body.getWorldCenter().x + 0.8f, car.body.getWorldCenter().y - 0.5f, 0);
         totalSpeeds -= avSpeedQueue.poll();
-        avSpeedQueue.add(car.getSpeed());
-        totalSpeeds += car.getSpeed();
-        float av = ((totalSpeeds * totalSpeeds) / ZOOMBUFFER) / 100000 + 0.8f;
+        avSpeedQueue.add(car.getRealWorldSpeed());
+        totalSpeeds += car.getRealWorldSpeed();
+        float av = ((totalSpeeds * totalSpeeds) / ZOOMBUFFER) / 50000 + 0.8f;
 
         zoomLagQueue.add(av);
         camera.zoom = zoomLagQueue.poll();
@@ -379,8 +377,9 @@ public class GameScreen implements InputProcessor, Screen {
         game.batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         Gdx.gl20.glClearColor(0.2f, 0.2f, 0.2f, 1);
         Gdx.gl.glClearColor(1, 1, 1, 1);
-        Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        // Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT | (Gdx.graphics.getBufferFormat().coverageSampling ? GL20.GL_COVERAGE_BUFFER_BIT_NV : 0));
 
         worldRenderer.drawWorld(game.batch, camera);
         gl20Test.render(camera);

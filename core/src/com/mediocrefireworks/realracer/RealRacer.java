@@ -246,15 +246,16 @@ public class RealRacer extends Game {
 
         }
 
+        player.addCar(new Car(Make.Jepe, "Cheroke", 2012, "FWD", "data/json/cars/jeepcheroke12.json", this));
 
         //	player.addCar(new Car(1,"Subaru","Legacy",2014,"AWD consumer rally car","data/json/subarulegacy14.json"));
-        player.addCar(new Car(Make.Madza, "323", 1986, "FWD", "data/json/cars/jeepcheroke12.json", this));
         player.selectCar(player.cars.getFirst());
 
         //create a new Dealer
         dealer = new Dealer();
-        //	dealer.addCar(new Car(Make.Madza, "3233", 1986,"FWD","data/json/cars/mazda32386.json",this));
-        dealer.addCar(new Car(Make.Jepe, "Cheroke", 2012, "FWD", "data/json/cars/jeepcheroke12.json", this));
+        dealer.addCar(new Car(Make.Madza, "323", 1986, "FWD", "data/json/cars/mazda32386.json", this));
+
+        //	dealer.addCar(new Car(Make.Madza, "323", 1986,"FWD","data/json/cars/mazda32386.json",this));
         dealer.addCar(new Car(Make.Homda, "Accord", 1997, "FWD", "data/json/cars/hondaaccord97.json", this));
 
         showRoomTrack = new Track("rat", "data/json/flatLevel.json");

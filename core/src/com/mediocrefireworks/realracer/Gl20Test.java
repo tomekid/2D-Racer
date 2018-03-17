@@ -52,6 +52,8 @@ public class Gl20Test {
     }
 
     public void render(OrthographicCamera camera) {
+
+
         texture.bind();
         shader.begin();
         shader.setUniformMatrix("u_projTrans", camera.combined);

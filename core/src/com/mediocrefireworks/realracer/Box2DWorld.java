@@ -29,7 +29,7 @@ public class Box2DWorld implements ContactListener {
         BodyName bodyA = (BodyName) contact.getFixtureA().getBody().getUserData();
         BodyName bodyB = (BodyName) contact.getFixtureB().getBody().getUserData();
 
-        if ((bodyA == BodyName.frontWheel && bodyB == BodyName.ground) || (bodyA == BodyName.ground && bodyB == BodyName.frontWheel)) {
+        if ((bodyA == BodyName.frontWheel && bodyB == BodyName.ground) || (bodyA == BodyName.ground && bodyB == BodyName.rearWheel)) {
             car.frontWheel.contactPoints++;
             car.rearWheel.contactPoints++;
         }
@@ -42,7 +42,7 @@ public class Box2DWorld implements ContactListener {
         BodyName bodyA = (BodyName) contact.getFixtureA().getBody().getUserData();
         BodyName bodyB = (BodyName) contact.getFixtureB().getBody().getUserData();
 
-        if ((bodyA == BodyName.frontWheel && bodyB == BodyName.ground) || (bodyA == BodyName.ground && bodyB == BodyName.frontWheel)) {
+        if ((bodyA == BodyName.frontWheel && bodyB == BodyName.ground) || (bodyA == BodyName.ground && bodyB == BodyName.rearWheel)) {
             car.frontWheel.contactPoints--;
             car.rearWheel.contactPoints--;
         }
